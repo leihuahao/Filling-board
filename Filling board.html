@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>填色板小言</title>
+
+  <style type="text/css">
+		*{ margin:0;
+		   padding:0;
+		  }
+		#boxtest
+		 {
+		  width:100px;
+		  height:100px;
+		  background:black;
+          }
+		 #boxbtn
+		 { width:50px;
+		   height:30px;
+		   }
+		 #tab 
+		 {width:400px;
+		  height:230px;
+		  border:3px solid black;
+		  position:absolute;
+          top:0;left:0;right:0;bottom:0;
+		  margin:auto;
+		  text-align:center;
+		  display:none;<!--宽高，定位居中，上底左右的边距，外边距自动，标签内文本居中-->
+		  }
+		  #tab p
+		  {width:60px;
+		  height:30px;
+		  float:left;
+		  margin:15px;
+		  border:1px solid #999;
+		  font:16px/30px "Microsoft Yahei";<!--内部标签，左浮动，边框，字体高宽，字体格式-->
+		  }
+		   #tabbtn
+		  {width:50px;
+		   height:30px;
+		   background:red;
+		   border:1px solid #999;
+		   margin:0 auto;
+		   font:16px/30px "Microsoft Yahei";
+		   }
+
+  </style>
+
+  <script type="text/javascript">
+      window.onload=function(){
+		  
+		  var boxbtn=document.getElementById("boxbtn");
+		  var boxtest=document.getElementById("boxtest");
+		  var tab=document.getElementById("tab");
+		  var tabbtn=document.getElementById("tabbtn");
+
+		  var bcolor=document.getElementsByClassName("bcolor");
+		  var bwidth=document.getElementsByClassName("bwidth");//大写
+		  var bheight=document.getElementsByClassName("bheight");
+
+		  boxbtn.onclick=function(){
+			  tab.style.display= "block";
+		  }
+		  tabbtn.onclick=function(){
+			  tab.style.display= "none";
+		  }//区域块按钮响应
+
+		  bcolor[0].onclick=ocolor;
+		  bcolor[1].onclick=ocolor;
+		  bcolor[2].onclick=ocolor;
+		  function ocolor(){//颜色选定
+			  boxtest.style.backgroundColor=this.style.backgroundColor;//color 大写
+		  }
+		  bwidth[0].onclick=owidth;
+          bwidth[1].onclick=owidth;
+		  bwidth[2].onclick=owidth;
+		  function owidth(){
+			  boxtest.style.width=this.innerText;//宽度选定
+		  }
+		  bheight[0].onclick=oheight;
+          bheight[1].onclick=oheight;
+          bheight[2].onclick=oheight;
+		  function oheight(){
+			  boxtest.style.height=this.style.innerHTML;//高度选定
+          }
+	  }
+</script>
+</head>
+ <body>
+    <div id="box" >
+	   <div id="boxtest"></div>
+	   <input type="button" id="boxbtn" value="click"/>
+	</div>
+
+	<div id="tab">
+	<div>
+	  <p>背景</p>
+	  <p class="bcolor" style="background-color:red"></p>
+	  <p class="bcolor" style="background-color:green"></p>
+	  <p class="bcolor" style="background-color:blue"></p>
+	  <br clear="All" \>
+	</div>
+
+    <div>
+	  <p>宽度</p>
+	  <p class="bwidth" >100px</p>
+	  <p class="bwidth" >200px</p>
+	  <p class="bwidth" >300px</p>
+	  <br clear="All" \>
+	</div>
+
+    <div>
+	  <p>高度</p>
+	  <p class="bheight">100px</p>
+	  <p class="bheight">200px</p>
+	  <p class="bheight">300px</p>
+	  <br clear="All" \>
+    </div>
+
+      <div id="tabbtn">完成</div>
+
+	</div>
+ </body>
+</html>
